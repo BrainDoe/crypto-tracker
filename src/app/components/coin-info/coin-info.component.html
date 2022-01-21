@@ -1,0 +1,11 @@
+<div *ngIf="loading" style="text-align: center;">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+<div class="chart-container">
+  <canvas id="canvas">{{ histocalData }}</canvas>
+</div>
+<div style="display: flex;">
+  <div *ngFor="let day of chartDays">
+    <app-button [days]="day.value" [selected]="day.value === days" [key]="day.value" (click)="day.value === days"></app-button>
+  </div>
+</div>

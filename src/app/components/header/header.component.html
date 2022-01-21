@@ -1,0 +1,14 @@
+<header class="header">
+  <nav class="nav">
+    <div class="container">
+      <div class="header-items-wrapper">
+        <div class="logo">
+          <h2>Crypto Tracker</h2>
+        </div>
+        <select (change)="setCurrency()">
+          <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+</header>

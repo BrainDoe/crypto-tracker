@@ -1,0 +1,74 @@
+.heading {
+  font-size: 25px;
+  font-weight: 400;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.heading h4 {
+  margin-bottom: 20px;
+  color: whitesmoke;
+}
+
+.input {
+  width: 90%;
+  padding: 10px 15px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  border: 1px solid whitesmoke;
+  transition: border .3s ease;
+  font-size: 20px;
+}
+
+.input:active,
+.input:focus {
+  background-color: rgba(0, 0, 0, .4);
+  border: 1px solid tomato;
+  outline: none;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.table-row {
+  cursor: pointer; 
+  padding: 10px 0;
+  margin: 15px 0;
+}
+
+.table-row:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+}
+
+
+.coin-detail {
+  display: flex;
+  align-items: center;
+}
+
+.coin-detail img {
+  width: 50px;
+  margin: 0 15px;
+}
+
+.symbol-content {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-around; 
+  align-items: center;
+}
+
+.coin-detail .coin-symbol {
+  font-size: 30px;
+  font-weight: 500;
+  color: whitesmoke;
+}
+
+.coin-detail .coin-name {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: gray;
+}

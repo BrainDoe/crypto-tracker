@@ -1,0 +1,25 @@
+<p-carousel 
+  [value]="trendingCoins" 
+  [autoplayInterval]="4000" 
+  [circular]="true" 
+  [numVisible]="3" 
+  [responsiveOptions]="responsiveOptions" 
+  [showIndicators]="false" 
+  class="p-carousel-dot-item" 
+>
+  <ng-template let-coin pTemplate="item">
+      <a routerLink="/coins/{{ coin.id }}" class="carousel-item">
+        <img style="height: 100px; margin-bottom: 10px; cursor: pointer;" [src]="coin.image" [alt]="coin.name + ' image'">
+        <span>
+          {{ coin?.symbol }}
+          &nbsp;
+          <span [ngStyle]="{'color': coin.price_change_percentage_24h > 0 ? 'rgb(79, 245, 79)' : 'red' }">
+            {{ coin.price_change_percentage_24h > 0 ? '+' : ''}} {{ coin?.price_change_percentage_24h?.toFixed(2) | percent }}
+          </span>
+        </span>
+        <span style="font-size: 22; font-weight: 500;">
+          {{ symbol }} {{ coin?.current_price.toFixed(2) }}
+        </span>
+      </a>
+  </ng-template>
+</p-carousel>

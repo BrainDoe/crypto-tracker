@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="coin-container">
+    <div *ngIf="loading" style="text-align: center;">
+      <p-progressSpinner></p-progressSpinner>
+    </div>
+    <div class="sidebar" *ngIf="!loading">
+      <img [src]="coin?.image.large" [alt]="coin.name">
+      <h2>{{ coin?.name }}</h2>
+      <div style="color: white; margin-bottom: 30px;" [outerHTML]="coin.description.en.length > 350 ? coin.description.en.substring(0, 350) +'...' : coin.description.en | safeHtml: 'color': 'white' " class="outerhtml"></div>
+      <div class="market-data">
+        <span style="display: flex;">
+          <h5 style="color: white; text-align: center;">Rank: &nbsp; &nbsp; <span style="color: rgb(97, 238, 97)">{{ coin.market_cap_rank }}</span></h5>
+        </span>
+        <span style="display: flex;">
+          <h5 style="color: white;">Current Price: &nbsp; &nbsp; <span style="color: rgb(97, 238, 97)">{{ coin.market_data.current_price.usd | currency }}</span></h5>
+        </span>
+        <span style="display: flex;">
+          <h5 style="color: white;">Market Cap: &nbsp; &nbsp; <span style="color: rgb(97, 238, 97)">{{ coin.market_data.market_cap.usd | currency }}</span></h5>
+        </span>
+      </div>
+    </div>
+    <div class="coin-info">
+      <app-coin-info></app-coin-info>
+    </div>
+  </div>
+</div>

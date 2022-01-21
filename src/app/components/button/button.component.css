@@ -1,0 +1,29 @@
+/* .buttons {
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+} */
+
+button {
+  border: 1px solid gold;
+  padding: 12px 15px;
+  outline: none;
+  border-radius: 5px;
+  margin-right: 15px;
+  color: rgb(41, 26, 26);
+  min-width: 150px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 18px;
+}
+button:hover,
+button:active {
+  background-color: gold;
+  color: rgb(41, 26, 26);
+}
+
+@media (max-width: 500px) {
+  button {
+    max-width: 60px;
+  }
+}

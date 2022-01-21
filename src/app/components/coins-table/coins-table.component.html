@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="heading">
+    <h4>All Coin Prices By Market Cap</h4>
+    <input (change)="handleInput($event)" [(ngModel)]="inputValue" type="text" name="search" id="search" class="input" placeholder="Search for your coin...">
+  </div>
+</div>
+<div class="container">
+</div>
+
+<div class="container">
+  <div *ngIf="loading" style="text-align: center;">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+  <div class="card" *ngIf="!loading">
+    <p-table 
+      [value]="coinsList" 
+      [paginator]="true" 
+      [rows]="10" 
+      [showCurrentPageReport]="true" 
+      responsiveLayout="scroll"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
+      [rowsPerPageOptions]="[10,25,50]"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Coin</th>
+          <th>Price</th>
+          <th>24h Change</th>
+          <th>Market Cap</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-coin>
+        <tr routerLink="/coins/{{ coin.id }}" ngClass="table-row">
+          <td>
+            <div class="coin-detail">
+              <img [src]="coin.image" [alt]="coin.name">
+              <div class="symbol-content">
+                <span class="coin-symbol">{{ coin.symbol }}</span>
+                <span class="coin-name">{{coin.name}}</span>
+              </div>
+            </div>
+          </td>
+          <td style="color: white">{{coin.current_price | currency}}</td>
+          <td [ngStyle]="{'color': coin.price_change_percentage_24h > 0 ? 'rgb(79, 245, 79)' : 'red' }">{{ coin.price_change_percentage_24h > 0 ? '+' : ''}} {{coin.price_change_percentage_24h.toFixed(2) | percent }}</td>
+          <td style="color: white">{{coin.total_volume.toString().slice(0, -6)}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+        <p-button type="button" styleClass="p-button-text"></p-button>
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+        <p-button type="button" styleClass="p-button-text"></p-button>
+      </ng-template>
+    </p-table>
+</div>
+</div>

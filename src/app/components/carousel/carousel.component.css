@@ -1,0 +1,15 @@
+.carousel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+}
+
+.p-carousel-footer {
+  display: none;
+}
